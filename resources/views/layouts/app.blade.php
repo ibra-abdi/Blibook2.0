@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Surfside Media</title>
+    <title>Blibook</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,14 +28,14 @@
                                 <li>
                                     <a class="language-dropdown-active" href="#"> <i class="fi-rs-world"></i>
                                         English <i class="fi-rs-angle-small-down"></i></a>
-                                    <ul class="language-dropdown">
+                                    {{-- <ul class="language-dropdown">
                                         <li><a href="#"><img src="assets/imgs/theme/flag-fr.png"
                                                     alt="">Français</a></li>
                                         <li><a href="#"><img src="assets/imgs/theme/flag-dt.png"
                                                     alt="">Deutsch</a></li>
                                         <li><a href="#"><img src="assets/imgs/theme/flag-ru.png"
                                                     alt="">Pусский</a></li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
                             </ul>
                         </div>
@@ -436,7 +436,7 @@
                                                     <ul class="sub-menu">
                                                         <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                                         <li><a href="#">Products</a></li>
-                                                        <li><a href="#">Categories</a></li>
+                                                        <li><a href="{{ route('admin.categories') }}">Categories</a></li>
                                                         <li><a href="#">Coupons</a></li>
                                                         <li><a href="#">Orders</a></li>
                                                         <li><a href="#">Customers</a></li>
@@ -446,8 +446,9 @@
                                                         <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
                                                     </ul>
                                                 @endif
-                                                @endif
+
                                             </li>
+                                            @endif
                                         </ul>
                                     </nav>
                                 </div>

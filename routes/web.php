@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\Admin\AdminCategoriesComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\AdminAddCategoryComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +54,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth', 'authadmin'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin/categories', AdminCategoriesComponent::class)->name('admin.categories');
+    Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.category.add');
 });
 
 require __DIR__ . '/auth.php';
