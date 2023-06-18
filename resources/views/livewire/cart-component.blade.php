@@ -15,24 +15,25 @@
                     <div class="col-12">
                         <div class="table-responsive">
                             <table class="table shopping-summery text-center clean">
-                                <thead>
-                                    <tr class="main-heading">
-                                        <th scope="col">Image</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Subtotal</th>
-                                        <th scope="col">Remove</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (Session::has('success_message'))
-                                        <div class="alert alert-success">
-                                            <strong>Success | {{ Session::get('success_message') }}</strong>
+                                @if (Session::has('success_message'))
+                                    <div class="alert alert-success">
+                                        <strong>Success | {{ Session::get('success_message') }}</strong>
 
-                                        </div>
-                                    @endif
-                                    @if (Cart::count() > 0)
+                                    </div>
+                                @endif
+                                @if (Cart::count() > 0)
+                                    <thead>
+                                        <tr class="main-heading">
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Subtotal</th>
+                                            <th scope="col">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
                                         @foreach (Cart::content() as $item)
                                             <tr>
                                                 <td class="image product-thumbnail"><img
@@ -65,21 +66,24 @@
                                                     <span>{{ $item->subtotal }} </span>
                                                 </td>
                                                 <td class="action" data-title="Remove"><a href="#"
-                                                        class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                                        class="text-muted"
+                                                        wire:click.prevent="destroy('{{ $item->rowId }}')"><i
+                                                            class="fi-rs-trash"></i></a></td>
                                             </tr>
                                         @endforeach
-                                    @else
-                                        <p>no item in cart</p>
-                                    @endif
 
-                                    <tr>
-                                        <td colspan="6" class="text-end">
-                                            <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i>
-                                                Clear Cart</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                        <tr>
+                                            <td colspan="6" class="text-end">
+                                                <a href="#" class="text-muted" wire:click.prevent="clearAll()"> <i
+                                                        class="fi-rs-cross-small"></i>
+                                                    Clear Cart</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                             </table>
+                        @else
+                            <p>no item in cart</p>
+                            @endif
                         </div>
                         <div class="cart-action text-end">
                             <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a>
