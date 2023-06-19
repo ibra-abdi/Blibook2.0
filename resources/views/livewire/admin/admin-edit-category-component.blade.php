@@ -1,8 +1,7 @@
 <div>
     <style>
         nav svg {
-            height: 20 px;
-            ;
+            height: 20px;
         }
 
         nav .hidden {
@@ -14,7 +13,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="/" rel="nofollow">Home</a>
-                    <span></span> Add New Category
+                    <span></span> Edit Category
                 </div>
             </div>
         </div>
@@ -23,45 +22,46 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card header">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        add new category
+                                        Edit Category
                                     </div>
-                                    <div clas="col-md-6">
+                                    <div class="col-md-6">
                                         <a href="{{ route('admin.categories') }}" class="btn btn-success float-end">All
                                             Categories</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                @if (Session::has('message'))
-                                    <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
+                            <div class="card body">
+                                @if (session::has('message'))
+                                    <div class="alert alert-success" role="alert">{{ session::get }}</div>
                                 @endif
-                                <form wire:submit.prevent="storeCategory">
+                                <form wire:submit.prevent="updateCategory">
                                     <div class="mb-3 mt-3">
-                                        <label form="name" class="form-label">Name</label>
+                                        <label for="name" class="form-label">Name</label>
                                         <input type="text" name="name" class="form-control"
                                             placeholder="Enter Category Name" wire:model="name"
-                                            wire:keyup="generateSlug" />
+                                            wire:keyup="generateSlug"wire:model="slug" />
                                         @error('name')
-                                            <p class="text-danger">{{ $message }}</p>
+                                            <p class="text-danger">{{ message }}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="slug" class="form-label">Slug</label>
                                         <input type="text" name="slug" class="form-control"
-                                            placeholder="Enter Category slug" wire:model="slug" />
+                                            placeholder="Enter Category Slug" wire:model="slug" />
                                         @error('slug')
-                                            <p class="text-danger">{{ $message }}</p>
+                                            <p class="text-danger">{{ message }}</p>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-primary float-end">Submit</button>
+                                    <button type="submit" class="btn btn-primary float-end">submit</Button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </main>
 </div>
