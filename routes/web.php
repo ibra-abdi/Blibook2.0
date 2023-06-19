@@ -11,6 +11,7 @@ use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 
 /*
@@ -38,8 +39,9 @@ Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 Route::get('/cart', CartComponent::class)->name('shop.cart');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout.cart');
 Route::get('/product-category/{slug}', CategoryComponent::class)->name('product.category');
+Route::get('/search', SearchComponent::class)->name('product.search');
 
-// Import
+// Import again
 
 
 Route::middleware('auth')->group(function () {
