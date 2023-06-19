@@ -73,8 +73,7 @@
                                             <div class="product-img product-img-zoom">
                                                 <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
                                                     <img class="default-img"
-                                                        src="{{ asset('assets/imgs/products') }}{{ $product->image }}"
-                                                        {{-- ^id changed to image --}}
+                                                        src="{{ asset('assets/imgs/shop/product-') }}{{ $product->id }}-1.jpg"
                                                         alt="{{ $product->name }}">
                                                     <img class="hover-img"
                                                         src="{{ asset('assets/imgs/shop/product-') }}{{ $product->id }}-2.jpg"
@@ -144,7 +143,7 @@
                             <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
                             <ul class="categories">
                             @foreach ($categories as $category)
-                                <li><a href="{{route('product.category',['slug'=>$category->slug])}}">{{$category->name}}</a></li>
+                            <li><a href="{{route('product.category',['slug'=>$category->slug])}}">{{$category->name}}</a></li>
                             @endforeach
                             </ul>
                         </div>
